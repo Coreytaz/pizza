@@ -139,4 +139,26 @@ $(document).ready(function () {
         }, 400);
         return false;
     });
+
+    $('#order form').validate({
+        rules: {
+            Name: "required",
+            phone: "required",
+            email: {
+                required: true,
+                email: true
+            },
+            buy: "required",
+        },
+        messages: {
+            Name: "Пожалуйста, введите свое имя",
+            phone: "Пожалуйста, введите свой телефон",
+            email: {
+                required: "Пожалуйста, введите свою почту",
+                email: "Неправильный адрес почты"
+            }
+        }
+    });
+
+    $('input[name=phone]').mask("+7 (999)-999-99-99")
 });
