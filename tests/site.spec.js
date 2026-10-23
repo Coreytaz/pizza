@@ -1,5 +1,6 @@
 import { test, expect } from "@playwright/test";
 test.beforeEach(async ({ page }) => {
+  await page.route("https://stats.coreytaz.ru/**", (route) => route.abort());
   await page.route("https://yandex.ru/**", (route) => route.abort());
   await page.route("https://fonts.googleapis.com/**", (route) => route.abort());
   await page.goto("./");
